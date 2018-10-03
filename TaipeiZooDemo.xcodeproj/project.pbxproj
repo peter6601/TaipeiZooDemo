@@ -8,13 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		D025B28621611A7E00E612F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B28521611A7E00E612F2 /* AppDelegate.swift */; };
-		D025B28821611A7E00E612F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B28721611A7E00E612F2 /* ViewController.swift */; };
+		D025B28821611A7E00E612F2 /* FirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B28721611A7E00E612F2 /* FirstPageViewController.swift */; };
 		D025B28B21611A7E00E612F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D025B28921611A7E00E612F2 /* Main.storyboard */; };
 		D025B28D21611A7F00E612F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D025B28C21611A7F00E612F2 /* Assets.xcassets */; };
 		D025B29021611A7F00E612F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D025B28E21611A7F00E612F2 /* LaunchScreen.storyboard */; };
 		D025B29B21611A7F00E612F2 /* TaipeiZooDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B29A21611A7F00E612F2 /* TaipeiZooDemoTests.swift */; };
 		D025B2A621611A7F00E612F2 /* TaipeiZooDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B2A521611A7F00E612F2 /* TaipeiZooDemoUITests.swift */; };
 		D077E5AE2163A8210060D94E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D077E5AD2163A8210060D94E /* APIService.swift */; };
+		DAD2349B21645ACF0008D295 /* Resutl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD2349A21645ACF0008D295 /* Resutl.swift */; };
+		DAD2349C21645ACF0008D295 /* Resutl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD2349A21645ACF0008D295 /* Resutl.swift */; };
+		DAD2349E21645BC90008D295 /* ResutlRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD2349D21645BC90008D295 /* ResutlRoot.swift */; };
+		DAD2349F21645BC90008D295 /* ResutlRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD2349D21645BC90008D295 /* ResutlRoot.swift */; };
+		DAD234A121645E6A0008D295 /* FirstPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD234A021645E6A0008D295 /* FirstPageViewModel.swift */; };
+		DAD234A221645E6A0008D295 /* FirstPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD234A021645E6A0008D295 /* FirstPageViewModel.swift */; };
+		DAD234A3216464520008D295 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D077E5AD2163A8210060D94E /* APIService.swift */; };
+		DAD234A92164AC3A0008D295 /* CacheImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD234A82164AC3A0008D295 /* CacheImage.swift */; };
+		DAD234AA2164AC3A0008D295 /* CacheImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD234A82164AC3A0008D295 /* CacheImage.swift */; };
+		DAD234AB2164CF1C0008D295 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD234A4216494AD0008D295 /* InfoTableViewCell.swift */; };
+		DAD234AC2164CF1D0008D295 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD234A4216494AD0008D295 /* InfoTableViewCell.swift */; };
+		DAD234AD2164CF310008D295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D025B28921611A7E00E612F2 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +49,7 @@
 /* Begin PBXFileReference section */
 		D025B28221611A7E00E612F2 /* TaipeiZooDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiZooDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D025B28521611A7E00E612F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D025B28721611A7E00E612F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D025B28721611A7E00E612F2 /* FirstPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageViewController.swift; sourceTree = "<group>"; };
 		D025B28A21611A7E00E612F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D025B28C21611A7F00E612F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D025B28F21611A7F00E612F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +61,11 @@
 		D025B2A521611A7F00E612F2 /* TaipeiZooDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaipeiZooDemoUITests.swift; sourceTree = "<group>"; };
 		D025B2A721611A7F00E612F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D077E5AD2163A8210060D94E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		DAD2349A21645ACF0008D295 /* Resutl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resutl.swift; sourceTree = "<group>"; };
+		DAD2349D21645BC90008D295 /* ResutlRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResutlRoot.swift; sourceTree = "<group>"; };
+		DAD234A021645E6A0008D295 /* FirstPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageViewModel.swift; sourceTree = "<group>"; };
+		DAD234A4216494AD0008D295 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		DAD234A82164AC3A0008D295 /* CacheImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +117,13 @@
 			isa = PBXGroup;
 			children = (
 				D025B28521611A7E00E612F2 /* AppDelegate.swift */,
-				D025B28721611A7E00E612F2 /* ViewController.swift */,
+				D025B28721611A7E00E612F2 /* FirstPageViewController.swift */,
+				DAD234A021645E6A0008D295 /* FirstPageViewModel.swift */,
 				D077E5AD2163A8210060D94E /* APIService.swift */,
+				DAD2349A21645ACF0008D295 /* Resutl.swift */,
+				DAD234A4216494AD0008D295 /* InfoTableViewCell.swift */,
+				DAD2349D21645BC90008D295 /* ResutlRoot.swift */,
+				DAD234A82164AC3A0008D295 /* CacheImage.swift */,
 				D025B28921611A7E00E612F2 /* Main.storyboard */,
 				D025B28C21611A7F00E612F2 /* Assets.xcassets */,
 				D025B28E21611A7F00E612F2 /* LaunchScreen.storyboard */,
@@ -243,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD234AD2164CF310008D295 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +283,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D025B28821611A7E00E612F2 /* ViewController.swift in Sources */,
+				DAD234A121645E6A0008D295 /* FirstPageViewModel.swift in Sources */,
+				DAD234AB2164CF1C0008D295 /* InfoTableViewCell.swift in Sources */,
+				D025B28821611A7E00E612F2 /* FirstPageViewController.swift in Sources */,
+				DAD234A92164AC3A0008D295 /* CacheImage.swift in Sources */,
 				D077E5AE2163A8210060D94E /* APIService.swift in Sources */,
+				DAD2349B21645ACF0008D295 /* Resutl.swift in Sources */,
+				DAD2349E21645BC90008D295 /* ResutlRoot.swift in Sources */,
 				D025B28621611A7E00E612F2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD234A221645E6A0008D295 /* FirstPageViewModel.swift in Sources */,
+				DAD234A3216464520008D295 /* APIService.swift in Sources */,
+				DAD2349F21645BC90008D295 /* ResutlRoot.swift in Sources */,
+				DAD234AA2164AC3A0008D295 /* CacheImage.swift in Sources */,
+				DAD234AC2164CF1D0008D295 /* InfoTableViewCell.swift in Sources */,
+				DAD2349C21645ACF0008D295 /* Resutl.swift in Sources */,
 				D025B29B21611A7F00E612F2 /* TaipeiZooDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

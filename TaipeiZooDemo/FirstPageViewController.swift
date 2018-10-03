@@ -8,7 +8,7 @@
 
 import UIKit
 //https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a3e2b221-75e0-45c1-8f97-75acbd43d613&limit=3
-class ViewController: UIViewController {
+class FirstPageViewController: UIViewController {
     
     @IBOutlet weak var mTableViewTop: NSLayoutConstraint!
     @IBOutlet weak var mainTableView: UITableView!
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UITableViewDataSource {
+extension FirstPageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30
     }
@@ -37,12 +37,12 @@ extension ViewController: UITableViewDataSource {
 }
 
 
-extension ViewController: UITableViewDelegate {
+extension FirstPageViewController: UITableViewDelegate {
     
 }
 
 
-extension ViewController: UIScrollViewDelegate {
+extension FirstPageViewController: UIScrollViewDelegate {
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
