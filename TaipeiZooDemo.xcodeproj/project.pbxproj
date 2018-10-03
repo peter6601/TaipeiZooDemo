@@ -14,6 +14,7 @@
 		D025B29021611A7F00E612F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D025B28E21611A7F00E612F2 /* LaunchScreen.storyboard */; };
 		D025B29B21611A7F00E612F2 /* TaipeiZooDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B29A21611A7F00E612F2 /* TaipeiZooDemoTests.swift */; };
 		D025B2A621611A7F00E612F2 /* TaipeiZooDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B2A521611A7F00E612F2 /* TaipeiZooDemoUITests.swift */; };
+		D077E5AE2163A8210060D94E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D077E5AD2163A8210060D94E /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D025B2A121611A7F00E612F2 /* TaipeiZooDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaipeiZooDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D025B2A521611A7F00E612F2 /* TaipeiZooDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaipeiZooDemoUITests.swift; sourceTree = "<group>"; };
 		D025B2A721611A7F00E612F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D077E5AD2163A8210060D94E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				D025B28521611A7E00E612F2 /* AppDelegate.swift */,
 				D025B28721611A7E00E612F2 /* ViewController.swift */,
+				D077E5AD2163A8210060D94E /* APIService.swift */,
 				D025B28921611A7E00E612F2 /* Main.storyboard */,
 				D025B28C21611A7F00E612F2 /* Assets.xcassets */,
 				D025B28E21611A7F00E612F2 /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D025B28821611A7E00E612F2 /* ViewController.swift in Sources */,
+				D077E5AE2163A8210060D94E /* APIService.swift in Sources */,
 				D025B28621611A7E00E612F2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
