@@ -9,11 +9,14 @@
 import UIKit
 class FirstPageViewController: UIViewController {
     
+    let headerHeight: CGFloat = 200
     
+    @IBOutlet weak var headerViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var bannerLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mTableViewTop: NSLayoutConstraint!
     @IBOutlet weak var mainTableView: UITableView! {
         didSet {
-//            mainTableView.register(InfoTableViewCell.self, forCellReuseIdentifier: "InfoCell")
             mainTableView.dataSource = self
             mainTableView.delegate = self
         }
@@ -23,8 +26,18 @@ class FirstPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initUI()
         requestData()
-    } 
+    }
+    
+    private func initUI() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        titleLabel.alpha = 0
+        headerViewHeight.constant = headerHeight +         ((UIApplication.shared.keyWindow?.safeAreaInsets.top) ?? 20) + 44
+
+    }
 }
 
 extension FirstPageViewController {
@@ -49,6 +62,7 @@ extension FirstPageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: InfoTableViewCell.self), for: indexPath) as! InfoTableViewCell
+        cell.selectionStyle = .none
         cell.bind(data: data[indexPath.row]) 
         return cell
     }
@@ -69,14 +83,18 @@ extension FirstPageViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y < 0 {
-            if  mTableViewTop.constant < 200 {
+            if  mTableViewTop.constant < headerHeight {
                 mTableViewTop.constant += -scrollView.contentOffset.y
+                setLabelAlpha(with: mTableViewTop.constant)
                 scrollView.contentOffset.y = 0
+                
             }
             
         } else if scrollView.contentOffset.y > 0 {
             if mTableViewTop.constant > 0 {
-                mTableViewTop.constant -= scrollView.contentOffset.y
+                let offset = mTableViewTop.constant - scrollView.contentOffset.y
+                mTableViewTop.constant = offset < 0 ? 0 : offset
+                setLabelAlpha(with: mTableViewTop.constant)
                 scrollView.contentOffset.y = 0
             }
         } else {
@@ -86,21 +104,39 @@ extension FirstPageViewController: UIScrollViewDelegate {
         }
     }
     
+    private func setLabelAlpha(with constant: CGFloat) {
+        let ratio = (constant / headerHeight)
+            bannerLabel.alpha = ratio
+            titleLabel.alpha = 1 - ratio
+    }
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        setTableViewHeight(scrollView)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+       setTableViewHeight(scrollView)
+    }
+    
+    private func setTableViewHeight(_ scrollView: UIScrollView) {
         let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
         print(scrollView.contentOffset.y)
         if translation.y > 0, scrollView.contentOffset.y == 0 {
             UIView.animate(withDuration: 0.5) {
                 scrollView.contentOffset.y = 0
-                self.mTableViewTop.constant = 200
+                self.mTableViewTop.constant = self.headerHeight
                 self.view.layoutIfNeeded()
+                self.setLabelAlpha(with: self.mTableViewTop.constant)
+                
             }
         } else if translation.y < 0, scrollView.contentOffset.y == 0 {
             UIView.animate(withDuration: 0.5) {
                 scrollView.contentOffset.y = 0
                 self.mTableViewTop.constant = 0
                 self.view.layoutIfNeeded()
-            }            
+                self.setLabelAlpha(with: self.mTableViewTop.constant)
+                
+            }
         }
     }
 }
