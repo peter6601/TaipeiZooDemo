@@ -9,16 +9,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TaipeiZooDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstPageViewController" customModule="TaipeiZooDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N17-sr-4lt">
                                 <rect key="frame" x="0.0" y="64" width="375" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="台北市立動物園" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW6-WQ-0PO">
+                                        <rect key="frame" x="126" y="90" width="122" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.68424377390000002" green="0.96792630889999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Nef-Vu-gSk"/>
@@ -29,14 +38,72 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.83627435240000003" blue="0.46215657650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoDemoCell" rowHeight="55" id="KhR-yY-xqV">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="55"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InfoTableViewCell" id="KhR-yY-xqV" customClass="InfoTableViewCell" customModule="TaipeiZooDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KhR-yY-xqV" id="2nf-pn-CT2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tAC-ev-f9R">
+                                                    <rect key="frame" x="122.5" y="10" width="242.5" height="23.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnU-yI-uZH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="242.5" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qh-g7-h5E">
+                                                            <rect key="frame" x="0.0" y="5" width="242.5" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOX-ID-pn4">
+                                                            <rect key="frame" x="0.0" y="10" width="242.5" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cly-zv-khD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="112.5" height="43.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ult-Yy-TKa" customClass="CacheImageView" customModule="TaipeiZooDemo" customModuleProvider="target">
+                                                            <rect key="frame" x="17" y="-17.5" width="78.5" height="78.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="ult-Yy-TKa" secondAttribute="height" multiplier="1:1" id="IBH-mG-f4x"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="ult-Yy-TKa" firstAttribute="width" secondItem="cly-zv-khD" secondAttribute="width" multiplier="0.7" id="0Cg-NQ-YFJ"/>
+                                                        <constraint firstItem="ult-Yy-TKa" firstAttribute="centerY" secondItem="cly-zv-khD" secondAttribute="centerY" id="0py-Nz-nnb"/>
+                                                        <constraint firstItem="ult-Yy-TKa" firstAttribute="centerX" secondItem="cly-zv-khD" secondAttribute="centerX" id="alS-I5-XsD"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
                                             <color key="backgroundColor" red="1" green="0.62852138440000005" blue="0.35038988840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="tAC-ev-f9R" firstAttribute="leading" secondItem="cly-zv-khD" secondAttribute="trailing" constant="10" id="0i6-fu-g2R"/>
+                                                <constraint firstAttribute="trailing" secondItem="tAC-ev-f9R" secondAttribute="trailing" constant="10" id="N0E-6H-aJK"/>
+                                                <constraint firstAttribute="bottom" secondItem="cly-zv-khD" secondAttribute="bottom" id="PeX-jt-UJ9"/>
+                                                <constraint firstAttribute="bottom" secondItem="tAC-ev-f9R" secondAttribute="bottom" constant="10" id="QER-k9-Kww"/>
+                                                <constraint firstItem="cly-zv-khD" firstAttribute="width" secondItem="2nf-pn-CT2" secondAttribute="width" multiplier="0.3" id="QHt-wg-33T"/>
+                                                <constraint firstItem="tAC-ev-f9R" firstAttribute="top" secondItem="2nf-pn-CT2" secondAttribute="top" constant="10" id="a82-TI-Ub3"/>
+                                                <constraint firstItem="cly-zv-khD" firstAttribute="leading" secondItem="2nf-pn-CT2" secondAttribute="leading" id="juH-Wp-xjM"/>
+                                                <constraint firstItem="cly-zv-khD" firstAttribute="top" secondItem="2nf-pn-CT2" secondAttribute="top" id="yxt-5w-rMj"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="infoImageView" destination="ult-Yy-TKa" id="5GJ-Ec-Jgg"/>
+                                            <outlet property="infoOneLabel" destination="1qh-g7-h5E" id="6s3-BK-DJ4"/>
+                                            <outlet property="infoTwoLabel" destination="EOX-ID-pn4" id="jNQ-Uu-34W"/>
+                                            <outlet property="titleLabel" destination="tnU-yI-uZH" id="ome-qU-bkf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
