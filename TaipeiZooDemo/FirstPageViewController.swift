@@ -22,11 +22,13 @@ class FirstPageViewController: UIViewController {
         }
     }
     @IBOutlet weak var headerView: UIView!
+    private var refreshControl: UIRefreshControl!
     lazy var data = FirstPageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
+        updateStatus()
         requestData()
     }
     
@@ -35,26 +37,57 @@ class FirstPageViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         titleLabel.alpha = 0
-        headerViewHeight.constant = headerHeight +         ((UIApplication.shared.keyWindow?.safeAreaInsets.top) ?? 20) + 44
-
+        headerViewHeight.constant = headerHeight + ((UIApplication.shared.keyWindow?.safeAreaInsets.top) ?? 20) + 44
+        initRefreshControl()
     }
+    private func initRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
+        mainTableView.addSubview(refreshControl)
+    }
+    
 }
 
 extension FirstPageViewController {
     
+    @objc func pullToRefresh() {
+        data.refreshData()
+        requestData()
+    }
+    private func refreshUI() {
+        self.refreshControl.endRefreshing()
+        self.mainTableView.reloadData()
+    }
     private func requestData() {
-        data.updateData = { [weak self] in
-            DispatchQueue.main.async {
+        switch  data.status {
+        case .loading:
+            break
+        default:
+            data.requestAPI()
+        }
+    }
+    
+    private func updateStatus() {
+        data.updateStatus = { [weak self] state in
+            switch state {
+            case .finish:
+                DispatchQueue.main.async {
+                    self?.refreshUI()
+                }
+            case .loading:
                 self?.mainTableView.reloadData()
+            case .empty:
+                break
+            case .fail(let error):
+                self?.refreshUI()
+                print(error.debugDescription)
             }
         }
-        
-        data.requestAPI { (error) in
-            print(error.debugDescription)
-        }
+        requestData()
     }
 }
 
+//MARK: 
 extension FirstPageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -106,8 +139,8 @@ extension FirstPageViewController: UIScrollViewDelegate {
     
     private func setLabelAlpha(with constant: CGFloat) {
         let ratio = (constant / headerHeight)
-            bannerLabel.alpha = ratio
-            titleLabel.alpha = 1 - ratio
+        bannerLabel.alpha = ratio
+        titleLabel.alpha = 1 - ratio
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -115,7 +148,7 @@ extension FirstPageViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-       setTableViewHeight(scrollView)
+        setTableViewHeight(scrollView)
     }
     
     private func setTableViewHeight(_ scrollView: UIScrollView) {

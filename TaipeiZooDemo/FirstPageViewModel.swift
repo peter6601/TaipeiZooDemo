@@ -14,26 +14,25 @@ class  FirstPageViewModel {
     enum Status {
         case finish
         case loading
-        case fail
+        case fail(Error?)
+        case empty
     }
     let apiManager: APIManager! 
     
-    private var animalList: [Result] = [] {
+    private var animalList: [Result] = []
+    
+    private(set) var status: Status = .finish {
         didSet {
-            updateData?()
+            updateStatus?(status)
         }
     }
-    
-    var status: Status = .finish
-    var updateData: (()->())?
-
+   
+    var updateStatus: ((_ status: Status)->())?
     var count: Int {
         get {
             return  animalList.count
         }
     }
-    
-     var page: Int = 0
     
     private var limit: Int = 30
     private var offset: Int = 0
@@ -46,28 +45,29 @@ class  FirstPageViewModel {
         self.apiManager = apiManager != nil ? apiManager! : APIManager.shared
     }
     
-    func requestAPI(completion: @escaping (Error?) -> Void) {
-        guard  self.status != .loading else {
-            completion(APIError.loading)
-            return
-        }
+    func refreshData() {
+        offset = 0
+        animalList.removeAll()
+    }
+    
+    func requestAPI() {
         self.status = .loading
         apiManager.getSearchRequest(limit: limit, offset: offset) { (resultsRoot, error) in
             guard let rootData = resultsRoot else {
-                self.status = .fail
-                completion(APIError.parsingError)
+                self.status = .fail(error)
                 return
             }
             guard let results = rootData.results else {
-                self.status = .fail
-                completion(APIError.parsingError)
+                self.status = .fail(APIError.dataNilError)
                 return
             }
-            self.offset += rootData.limit ?? 0
             self.animalList += results
-            self.status = .finish
-            
+            if !results.isEmpty {
+                self.offset += rootData.limit ?? 0
+                self.status = .finish
+            } else {
+                self.status = .empty
+            }
         }
     }
-    
 }
