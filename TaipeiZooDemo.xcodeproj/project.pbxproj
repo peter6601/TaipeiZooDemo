@@ -27,6 +27,8 @@
 		DAD234AB2164CF1C0008D295 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD234A4216494AD0008D295 /* InfoTableViewCell.swift */; };
 		DAD234AC2164CF1D0008D295 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD234A4216494AD0008D295 /* InfoTableViewCell.swift */; };
 		DAD234AD2164CF310008D295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D025B28921611A7E00E612F2 /* Main.storyboard */; };
+		DAD234AF2165AA2B0008D295 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD234AE2165AA2B0008D295 /* URLSessionProtocol.swift */; };
+		DAD234B02165AA2B0008D295 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD234AE2165AA2B0008D295 /* URLSessionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,7 @@
 		DAD234A021645E6A0008D295 /* FirstPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageViewModel.swift; sourceTree = "<group>"; };
 		DAD234A4216494AD0008D295 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		DAD234A82164AC3A0008D295 /* CacheImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImage.swift; sourceTree = "<group>"; };
+		DAD234AE2165AA2B0008D295 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,7 @@
 				D025B28721611A7E00E612F2 /* FirstPageViewController.swift */,
 				DAD234A021645E6A0008D295 /* FirstPageViewModel.swift */,
 				D077E5AD2163A8210060D94E /* APIService.swift */,
+				DAD234AE2165AA2B0008D295 /* URLSessionProtocol.swift */,
 				DAD2349A21645ACF0008D295 /* Resutl.swift */,
 				DAD234A4216494AD0008D295 /* InfoTableViewCell.swift */,
 				DAD2349D21645BC90008D295 /* ResutlRoot.swift */,
@@ -283,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD234AF2165AA2B0008D295 /* URLSessionProtocol.swift in Sources */,
 				DAD234A121645E6A0008D295 /* FirstPageViewModel.swift in Sources */,
 				DAD234AB2164CF1C0008D295 /* InfoTableViewCell.swift in Sources */,
 				D025B28821611A7E00E612F2 /* FirstPageViewController.swift in Sources */,
@@ -302,6 +307,7 @@
 				DAD234A3216464520008D295 /* APIService.swift in Sources */,
 				DAD2349F21645BC90008D295 /* ResutlRoot.swift in Sources */,
 				DAD234AA2164AC3A0008D295 /* CacheImage.swift in Sources */,
+				DAD234B02165AA2B0008D295 /* URLSessionProtocol.swift in Sources */,
 				DAD234AC2164CF1D0008D295 /* InfoTableViewCell.swift in Sources */,
 				DAD2349C21645ACF0008D295 /* Resutl.swift in Sources */,
 				D025B29B21611A7F00E612F2 /* TaipeiZooDemoTests.swift in Sources */,
