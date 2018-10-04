@@ -12,13 +12,9 @@ import UIKit
 class CacheImageView: UIImageView {
     
     var cacheImage = NSCache<NSURL, UIImage>()
-    var originRequsetURL: URL?
-    var responseURL: URL?
-
-    
+    var originRequsetURL: URL?    
     var currentTask: URLSessionTask? {
         didSet {
-            oldValue?.cancel()
             currentTask?.resume()
         }
     }
@@ -36,8 +32,6 @@ extension CacheImageView {
             }
         } else {
             image = placeholder
-            
-            
             currentTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 guard let img = data else {
                     print("fail \(url)")
@@ -51,7 +45,6 @@ extension CacheImageView {
                 DispatchQueue.main.async { [weak self] in
                     self?.image = image
                 }
-                self.responseURL = responseURL
                 self.cacheImage.setObject(image, forKey: url as NSURL)
             }
         }
