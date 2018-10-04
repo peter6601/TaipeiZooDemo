@@ -34,5 +34,11 @@ struct Result : Codable {
 
     }
     
-    
+     func getInfo() -> String? {
+        guard let _abehavior = aBehavior, !_abehavior.isEmpty else {
+            return self.aInterpretation
+        }
+        return _abehavior
+        
+    }
 }

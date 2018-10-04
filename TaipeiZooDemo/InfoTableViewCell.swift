@@ -31,7 +31,7 @@ class InfoTableViewCell: UITableViewCell {
         }
         self.titleLabel.text = data.aNameCh
         self.infoOneLabel.text = data.aLocation
-        self.infoTwoLabel.text = data.aInterpretation
+        self.infoTwoLabel.text = data.getInfo()
         if let url = URL(string: data.aPic01URL ?? "") {
             self.infoImageView.image = UIImage(named: "taipeiZooIcon")
             self.infoImageView.render(url: url, placeholder: UIImage(named: "taipeiZooIcon"))
