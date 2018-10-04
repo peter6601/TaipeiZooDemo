@@ -7,42 +7,8 @@
 //
 import Foundation
 
-enum APIError: String, Error {
-    case parsingError
-    case statusError
-    case loading
-}
+//https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a3e2b221-75e0-45c1-8f97-75acbd43d613&limit=3
 
-enum HTTPMethod: String {
-    case GET
-    case POST
-    case PUT
-    case PATCH
-}
-typealias ProviderCompletionHandler = (Data?, URLResponse?, Error?) -> Swift.Void
-typealias HTTPHeaders = [String: String]
-typealias Parameters = [String: Any]
-
-protocol SessionProcotol {
-    func requestData(url: URL, method: HTTPMethod, parameters: Parameters? ,header: HTTPHeaders? ,completionHandler: @escaping ProviderCompletionHandler)
-}
-
-protocol ProviderProcotol {
-    func getList(limit: Int, offset: Int, completionHandler: @escaping ProviderCompletionHandler)
-}
-
-class Session: SessionProcotol {
-    
-    func requestData(url: URL, method: HTTPMethod, parameters: Parameters? = nil, header: HTTPHeaders? = nil, completionHandler: @escaping ProviderCompletionHandler) {
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        request.allHTTPHeaderFields = header
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            completionHandler(data, response, error)
-        }
-        task.resume()
-    }
-}
 
 class Provider: ProviderProcotol  {
     
@@ -82,7 +48,6 @@ class Provider: ProviderProcotol  {
     }
 }
 
-//https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a3e2b221-75e0-45c1-8f97-75acbd43d613&limit=3
 
 class APIManager {
     static let shared = APIManager()
@@ -99,7 +64,7 @@ class APIManager {
 
         provider?.getList(limit: limit, offset: offset, completionHandler: { (data, response, error) in
             guard let data = data else {
-                completion(nil, APIError.parsingError)
+                completion(nil, APIError.dataNilError)
                 return 
             }
             let decoder = JSONDecoder()
@@ -108,7 +73,7 @@ class APIManager {
                 let result = try decoder.decode(ResutlRoot.self, from: data)
                 completion(result, nil)
             } catch {
-                completion(nil, APIError.parsingError)
+                completion(nil, APIError.jsonParsingError)
             }
         })
     }
